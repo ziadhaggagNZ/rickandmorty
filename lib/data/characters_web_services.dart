@@ -32,7 +32,7 @@ class CharactersWebServices {
       {
          //print("Response Data: ${response.data}");
          Map<String, dynamic> data = convertJsonMap(response.data);
-         var characters = data['results'];
+         var characters = data['results'] ;
         return characters;
       }
       else

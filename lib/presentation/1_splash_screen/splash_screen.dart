@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rickandmorty/main.dart';
 import 'package:rickandmorty/presentation/1_splash_screen/widgets/SplachAnimation_widgets.dart';
+import 'package:rickandmorty/presentation/2_Movie_List_Screen/Movie_List_Screen.dart';
 
 
 class SplashScreen extends StatefulWidget {
@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const HomeScreen()),
+        MaterialPageRoute(builder: (context) =>  MovieListScreen()),
       );
     });
   }

@@ -29,7 +29,7 @@ class _SplachAnimationState extends State<SplachAnimation> {
       alignment: _isAnimating ? Alignment.topCenter : Alignment.center,
       child: AnimatedContainer(
         duration: const Duration(seconds: 2),
-        height: _isAnimating ? 80 : 300, 
+        height: _isAnimating ? 65 : 300, 
         width: _isAnimating ? 80 : 300,  
         child: Image.asset("assets/RickandMorty_logo.jpg"),
       ),
