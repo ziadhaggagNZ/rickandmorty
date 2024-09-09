@@ -14,7 +14,6 @@ AppBar CustomAppBar() {
       ],
     ),
     backgroundColor: Colors.white,
-    elevation: 0,
-    automaticallyImplyLeading: false,
+
   );
 }

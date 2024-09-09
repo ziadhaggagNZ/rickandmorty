@@ -11,23 +11,37 @@ Widget Custtom_Nav_Bar(BuildContext context) {
       ),
       child: BottomAppBar(
         shape: const CircularNotchedRectangle(), 
-        notchMargin: 18, 
+        notchMargin: 25, 
         child: Row(
           //mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             IconButton(
-              icon: const Icon(Icons.arrow_circle_left_outlined, color: Colors.black ,size: 40,),
+              icon: const Icon(Icons.arrow_circle_left_outlined, color: Colors.black ,size: 50,),
               onPressed: () {
-               //context.read<CharactersProvider>().pre_page();
-               charactersProvider.pre_page();
-
+               if(charactersProvider.Page_Number == 1)
+               {
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("No pre pages"),duration: Duration(seconds: 1),));
+               }
+               else
+               {
+                charactersProvider.pre_page(); 
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("pages : ${charactersProvider.Page_Number} of 42 "),duration: Duration(seconds: 1),));
+               }
               },
             ),
+            Spacer(),
             IconButton(
-              icon: const Icon(Icons.arrow_circle_right_outlined, color: Colors.black ,size: 40,),
+              icon: const Icon(Icons.arrow_circle_right_outlined, color: Colors.black ,size: 50,),
               onPressed: () {
-                //context.read<CharactersProvider>().next_page();
-                charactersProvider.next_page();
+                  if(charactersProvider.Page_Number == 42)
+               {
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("No next pages"),duration: Duration(seconds: 1),));
+               }
+               else
+               {
+                charactersProvider.next_page(); 
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("pages : ${charactersProvider.Page_Number} of 42 "),duration: Duration(seconds: 1),));
+               }
 
               },
             ),

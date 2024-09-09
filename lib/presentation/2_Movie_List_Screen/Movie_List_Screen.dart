@@ -5,6 +5,7 @@ import 'package:rickandmorty/presentation/2_Movie_List_Screen/widgets/CustomAppb
 import 'package:rickandmorty/presentation/2_Movie_List_Screen/widgets/CustomFloatingActionButton.dart';
 import 'package:rickandmorty/presentation/2_Movie_List_Screen/widgets/CustomNavBar.dart';
 import 'package:rickandmorty/provider/characters_provider.dart';
+import 'package:scroll_to_index/scroll_to_index.dart';
 
 class MovieListScreen extends StatefulWidget {
   MovieListScreen({super.key});
@@ -14,7 +15,13 @@ class MovieListScreen extends StatefulWidget {
 }
 
 class _MovieListScreenState extends State<MovieListScreen> {
+final AutoScrollController _scrollController = AutoScrollController();
 
+  @override
+  void dispose() {
+    _scrollController.dispose(); 
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,15 +37,15 @@ class _MovieListScreenState extends State<MovieListScreen> {
             return Center(child: Image.asset("assets/Empty.gif"));
           } else {
             return Container(
-              margin: const EdgeInsets.only(left: 10, right: 10, top: 20),
-              child: CharactersBuilder(provider),
+              margin: const EdgeInsets.only(left: 10, right: 10, top: 20 ),
+              child: CharactersBuilder(provider ,_scrollController),
             );
           }
         },
       ),
       bottomNavigationBar: Custtom_Nav_Bar(context),
-      floatingActionButton: Floating_Action_Button(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked, // Position FAB
+      floatingActionButton: Floating_Action_Button(scrollController: _scrollController),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked, 
     );
   }
 
