@@ -4,26 +4,50 @@ import 'package:rickandmorty/data/characters_web_services.dart';
 class CharactersProvider with ChangeNotifier {
   List<dynamic> _characters = [];
   bool _isLoading = false;
+  int _Page_Number = 1;
 
   List<dynamic> get characters => _characters;
   bool get isLoading => _isLoading;
+  int get Page_Number => _Page_Number;
 
   CharactersProvider() {
-    fetchCharacters(); // Fetch characters when the provider is initialized
+    getCharacters(); 
+    next_page();
+    pre_page();
   }
 
-  Future<void> fetchCharacters() async {
+  Future<void> getCharacters() async {
     _isLoading = true;
-    notifyListeners(); // Notify listeners to update the UI
+    notifyListeners(); 
 
     try {
       CharactersWebServices charactersWebServices = CharactersWebServices();
-      _characters = await charactersWebServices.getAllCharacters();
+      _characters = await charactersWebServices.getAllCharacters(_Page_Number);
     } catch (e) {
-      print('Error fetching characters: $e');
-    } finally {
-      _isLoading = false;
-      notifyListeners(); // Notify listeners to update the UI after fetching
-    }
+      print('Error : $e');
+     }// finally {
+      // _isLoading = false;
+      // notifyListeners(); 
+    // }
+          _isLoading = false;
+      notifyListeners(); 
+  }
+
+  void next_page()
+  {
+    _Page_Number++;
+    getCharacters();
+    notifyListeners();
+    
+    print(_Page_Number); 
+  }
+   void pre_page()
+  {
+    _Page_Number--;
+    notifyListeners();
+    getCharacters(); 
+    print(_Page_Number); 
+
+    
   }
 }

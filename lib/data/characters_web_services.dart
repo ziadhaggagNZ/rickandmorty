@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 class CharactersWebServices {
   late Dio dio;
   String Base_Url = "https://rickandmortyapi.com/api";
-  int Page_Number = 1;
+ // int Page_Number = 1;
 
   CharactersWebServices() {
     dio = Dio();
@@ -25,7 +25,7 @@ class CharactersWebServices {
 
 
 
-  Future<List<dynamic>> getAllCharacters() async {
+  Future<List<dynamic>> getAllCharacters(int Page_Number) async {
     try{
       Response response = await dio.get("${Base_Url}/character?page=${Page_Number.toString()}");
       if(response.statusCode == 200)
