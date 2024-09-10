@@ -6,32 +6,44 @@ Container Character_data_NameStatus(character) {
     child: Row(
       children: [
         //! Name
-        Expanded(
-            child: Row(
-          children: [
-            Text(
-              "Name : ",
-              style: TextStyle(
+        Flexible(
+          flex: 2,
+          child: Row(
+            children: [
+              Text(
+                "Name: ",
+                style: TextStyle(
                   color: Colors.grey[600],
                   fontSize: 18,
-                  fontWeight: FontWeight.bold),
-            ),
-            Text("${character["name"]}",
-                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Expanded(
+                child: Text(
+                  "${character["name"]}",
+                  style: const TextStyle(
                     color: Colors.black,
                     fontSize: 18,
-                    fontWeight: FontWeight.bold)),
-          ],
-        )),
+                    fontWeight: FontWeight.bold,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                ),
+              ),
+            ],
+          ),
+        ),
         //! Status
-        Row(
+        Wrap(
+          crossAxisAlignment: WrapCrossAlignment.center,
           children: [
             Text(
-              "Status : ",
+              "Status: ",
               style: TextStyle(
-                  color: Colors.grey[600],
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold),
+                color: Colors.grey[600],
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             character["status"] == "Alive"
                 ? const Icon(
@@ -46,13 +58,16 @@ Container Character_data_NameStatus(character) {
                         size: 20,
                       )
                     : const SizedBox(),
-            Text(" ${character["status"]}",
-                style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold)),
+            Text(
+              " ${character["status"]}",
+              style: const TextStyle(
+                color: Colors.black,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ],
-        )
+        ),
       ],
     ),
   );
@@ -64,25 +79,33 @@ Container Character_data_SpeciesGender(character) {
     child: Row(
       children: [
         //! species
-        Expanded(
+        Flexible(
+            flex: 2,
             child: Row(
-          children: [
-            Text(
-              "species : ",
-              style: TextStyle(
-                  color: Colors.grey[600],
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold),
-            ),
-            Text("${character["species"]}",
-                style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold)),
-          ],
-        )),
+              children: [
+                Text(
+                  "species : ",
+                  style: TextStyle(
+                      color: Colors.grey[600],
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                ),
+                Expanded(
+                  child: Text(
+                    "${character["species"]}",
+                    style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                  ),
+                ),
+              ],
+            )),
         //! gender
-        Row(
+        Wrap(
+          crossAxisAlignment: WrapCrossAlignment.center,
           children: [
             Text(
               "gender : ",
