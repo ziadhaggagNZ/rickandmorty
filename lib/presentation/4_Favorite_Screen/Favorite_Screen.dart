@@ -19,7 +19,23 @@ class _MyWidgetState extends State<FavoriteScreen> {
       appBar: CustomAppBar_FavoriteScreen(),
       backgroundColor:Colors.white,
       body: SingleChildScrollView(
-        child:CharactersBuilder_FavoriteScreen(widget.provider) ,
+        child:Column(
+          children: [
+            const SizedBox(height: 20,),
+            const Center(child: Text("Favorites",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),)),
+            widget.provider.favorite.isEmpty ? 
+            Container(
+              margin: EdgeInsets.only(top: 100),
+              height: 250,
+              width: 250,
+              child: Image.asset("assets/Empty.gif",fit: BoxFit.fill,))
+            :
+            Container(
+              margin: const EdgeInsets.only(left: 10, right: 10, top: 20),
+              child: CharactersBuilder_FavoriteScreen(widget.provider)
+              ),
+          ],
+        ) ,
       ),
     );
   }
