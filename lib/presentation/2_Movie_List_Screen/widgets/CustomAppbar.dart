@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:rickandmorty/presentation/4_Favorite_Screen/Favorite_Screen.dart';
 
-AppBar CustomAppBar() {
+AppBar CustomAppBar(context,provider) {
   return AppBar(
     title: Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -17,6 +18,7 @@ AppBar CustomAppBar() {
     actions: [
       IconButton(onPressed: () {
         //!\\\\\\\\\\\  
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => FavoriteScreen(provider: provider,)));
       },
        icon: const Icon(Icons.favorite),iconSize: 30,color: Colors.red,)
     ],

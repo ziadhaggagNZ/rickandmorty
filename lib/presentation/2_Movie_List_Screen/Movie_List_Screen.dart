@@ -8,24 +8,28 @@ import 'package:rickandmorty/provider/characters_provider.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
 class MovieListScreen extends StatefulWidget {
-  MovieListScreen({super.key});
+  const MovieListScreen({super.key});
 
   @override
   _MovieListScreenState createState() => _MovieListScreenState();
 }
 
 class _MovieListScreenState extends State<MovieListScreen> {
-final AutoScrollController _scrollController = AutoScrollController();
+  final AutoScrollController _scrollController = AutoScrollController();
 
   @override
   void dispose() {
-    _scrollController.dispose(); 
+    _scrollController.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
+    // Access the provider
+    final provider = Provider.of<CharactersProvider>(context, listen: false);
+
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: CustomAppBar(context, provider), // Passing the provider
       backgroundColor: Colors.white,
       body: Consumer<CharactersProvider>(
         builder: (context, provider, child) {
@@ -37,22 +41,78 @@ final AutoScrollController _scrollController = AutoScrollController();
             return Center(child: Image.asset("assets/Empty.gif"));
           } else {
             return Container(
-              margin: const EdgeInsets.only(left: 10, right: 10, top: 20 ),
-              child: CharactersBuilder(provider ,_scrollController),
+              margin: const EdgeInsets.only(left: 10, right: 10, top: 20),
+              child: CharactersBuilder(provider, _scrollController),
             );
           }
         },
       ),
       bottomNavigationBar: Custtom_Nav_Bar(context),
-      floatingActionButton: Floating_Action_Button(scrollController: _scrollController),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked, 
+      floatingActionButton: Floating_Action_Button(
+        scrollController: _scrollController,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
+}
+
+
+
+// import 'package:flutter/material.dart';
+// import 'package:provider/provider.dart';
+// import 'package:rickandmorty/presentation/2_Movie_List_Screen/widgets/CharactersBuilder.dart';
+// import 'package:rickandmorty/presentation/2_Movie_List_Screen/widgets/CustomAppbar.dart';
+// import 'package:rickandmorty/presentation/2_Movie_List_Screen/widgets/CustomFloatingActionButton.dart';
+// import 'package:rickandmorty/presentation/2_Movie_List_Screen/widgets/CustomNavBar.dart';
+// import 'package:rickandmorty/provider/characters_provider.dart';
+// import 'package:scroll_to_index/scroll_to_index.dart';
+
+// class MovieListScreen extends StatefulWidget {
+//   MovieListScreen({super.key});
+
+//   @override
+//   _MovieListScreenState createState() => _MovieListScreenState();
+// }
+
+// class _MovieListScreenState extends State<MovieListScreen> {
+// final AutoScrollController _scrollController = AutoScrollController();
+
+//   @override
+//   void dispose() {
+//     _scrollController.dispose(); 
+//     super.dispose();
+//   }
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: CustomAppBar(context,provider),
+//       backgroundColor: Colors.white,
+//       body: Consumer<CharactersProvider>(
+//         builder: (context, provider, child) {
+//           if (provider.isLoading) {
+//             return Center(child: Image.asset("assets/Loading.gif"));
+//           }
+
+//           if (provider.characters.isEmpty) {
+//             return Center(child: Image.asset("assets/Empty.gif"));
+//           } else {
+//             return Container(
+//               margin: const EdgeInsets.only(left: 10, right: 10, top: 20 ),
+//               child: CharactersBuilder(provider ,_scrollController),
+//             );
+//           }
+//         },
+//       ),
+//       bottomNavigationBar: Custtom_Nav_Bar(context),
+//       floatingActionButton: Floating_Action_Button(scrollController: _scrollController),
+//       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked, 
+//     );
+//   }
 
 
 
  
-}
+// }
 
 
 

@@ -14,7 +14,7 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final character = provider.characters[index];
     return Scaffold(
-        appBar: Custom_AppBar_Details_screen(character),
+        appBar: customAppBarDetailsScreen(context,character),
         body: SingleChildScrollView(
           child: Column(
             children: [

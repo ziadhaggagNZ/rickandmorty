@@ -18,14 +18,14 @@ Widget Custtom_Nav_Bar(BuildContext context) {
             IconButton(
               icon: const Icon(Icons.arrow_circle_left_outlined, color: Colors.black ,size: 50,),
               onPressed: () {
-               if(charactersProvider.Page_Number == 1)
+               if(charactersProvider.pageNumber == 1)
                {
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("No pre pages"),duration: Duration(seconds: 1),));
                }
                else
                {
-                charactersProvider.pre_page(); 
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("pages : ${charactersProvider.Page_Number} of 42 "),duration: Duration(seconds: 1),));
+                charactersProvider.previousPage(); 
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("pages : ${charactersProvider.pageNumber} of 42 "),duration: Duration(seconds: 1),));
                }
               },
             ),
@@ -33,14 +33,14 @@ Widget Custtom_Nav_Bar(BuildContext context) {
             IconButton(
               icon: const Icon(Icons.arrow_circle_right_outlined, color: Colors.black ,size: 50,),
               onPressed: () {
-                  if(charactersProvider.Page_Number == 42)
+                  if(charactersProvider.pageNumber == 42)
                {
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("No next pages"),duration: Duration(seconds: 1),));
                }
                else
                {
-                charactersProvider.next_page(); 
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("pages : ${charactersProvider.Page_Number} of 42 "),duration: Duration(seconds: 1),));
+                charactersProvider.nextPage(); 
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("pages : ${charactersProvider.pageNumber} of 42 "),duration: Duration(seconds: 1),));
                }
 
               },
