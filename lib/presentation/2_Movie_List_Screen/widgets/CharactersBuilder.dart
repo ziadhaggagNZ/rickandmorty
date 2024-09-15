@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rickandmorty/presentation/3_Details_Screen/Details_Screen.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 import 'package:rickandmorty/provider/characters_provider.dart';
-import 'package:animations/animations.dart'; 
+import 'package:animations/animations.dart';
 
 GridView CharactersBuilder(
     CharactersProvider provider, AutoScrollController scrollController) {
@@ -28,7 +28,7 @@ GridView CharactersBuilder(
         index: index,
         child: OpenContainer(
           transitionType: ContainerTransitionType.fadeThrough,
-          transitionDuration: const Duration(milliseconds: 500),
+          transitionDuration: const Duration(milliseconds: 300),  // Smooth transition
           closedBuilder: (context, action) => InkWell(
             onTap: action,
             child: Stack(
@@ -37,8 +37,8 @@ GridView CharactersBuilder(
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.black, width: 4),
                   ),
-                  child: GridTile(
-                    child: FadeInImage.assetNetwork(
+                   child: GridTile(
+                     child: FadeInImage.assetNetwork(
                       height: double.infinity,
                       width: double.infinity,
                       placeholder: "assets/Loading4.gif",
@@ -70,7 +70,7 @@ GridView CharactersBuilder(
                   right: 8,
                   child: IconButton(
                     icon: Icon(
-                      isFavorite ? Icons.favorite : Icons.favorite,
+                      isFavorite ? Icons.favorite : Icons.favorite_border,  
                       color: isFavorite ? Colors.red : Colors.white,
                     ),
                     onPressed: () {
@@ -100,4 +100,3 @@ GridView CharactersBuilder(
     },
   );
 }
-
