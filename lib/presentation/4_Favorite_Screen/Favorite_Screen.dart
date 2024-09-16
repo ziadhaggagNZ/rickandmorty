@@ -31,7 +31,7 @@ class _MyWidgetState extends State<FavoriteScreen> {
               child: Image.asset("assets/Empty.gif",fit: BoxFit.fill,))
             :
             Container(
-              margin: const EdgeInsets.only(left: 10, right: 10, top: 20),
+              margin: const EdgeInsets.only(left: 10, right: 10, top: 20,bottom: 10),
               child: CharactersBuilder_FavoriteScreen(widget.provider)
               ),
           ],

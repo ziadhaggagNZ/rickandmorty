@@ -20,7 +20,6 @@ class _DetailsScreenState extends State<DetailsScreen> {
   @override
   void initState() {
     super.initState();
-    // Simulate a network delay
     Future.delayed(const Duration(milliseconds: 800), () {
       if (mounted) {
         setState(() {
@@ -49,7 +48,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       const SizedBox(height: 40),
                       Character_data_NameStatus(character),
                       Character_data_SpeciesGender(character),
-                      const SizedBox(height: 40),
+                      const SizedBox(height: 20),
                       LogoDesign(),
                     ],
                   ),

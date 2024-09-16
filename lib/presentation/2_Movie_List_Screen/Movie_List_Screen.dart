@@ -40,7 +40,7 @@ class _MovieListScreenState extends State<MovieListScreen> {
             return Center(child: Image.asset("assets/Empty.gif"));
           } else {
             return Container(
-              margin: const EdgeInsets.only(left: 10, right: 10, top: 20),
+              margin: const EdgeInsets.only(left: 10, right: 10, top: 20,bottom: 10),
               child: CharactersBuilder(provider, _scrollController),
             );
           }

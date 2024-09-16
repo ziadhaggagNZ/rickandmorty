@@ -28,7 +28,7 @@ GridView CharactersBuilder(
         index: index,
         child: OpenContainer(
           transitionType: ContainerTransitionType.fadeThrough,
-          transitionDuration: const Duration(milliseconds: 300),  // Smooth transition
+          transitionDuration: const Duration(milliseconds: 300),  
           closedBuilder: (context, action) => InkWell(
             onTap: action,
             child: Stack(
