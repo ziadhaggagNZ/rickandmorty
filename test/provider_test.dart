@@ -6,7 +6,7 @@ void main() {
   late CharactersProvider charactersProvider;
 
   setUp(() {
-    SharedPreferences.setMockInitialValues({}); 
+    SharedPreferences.setMockInitialValues({});
     charactersProvider = CharactersProvider();
   });
 
@@ -37,7 +37,6 @@ void main() {
 
   test('Load favorites from SharedPreferences', () async {
     await charactersProvider.addToFavoriteList('Rick', 'image_url', 'Alive', 'Human', 'Male');
-    
 
     CharactersProvider newProvider = CharactersProvider();
     await newProvider.loadFavorites();
@@ -55,3 +54,10 @@ void main() {
     expect(charactersProvider.pageNumber, 1);
   });
 }
+
+
+
+
+
+
+

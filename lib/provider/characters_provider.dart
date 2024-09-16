@@ -97,4 +97,6 @@ class CharactersProvider with ChangeNotifier {
     return _favorite.isEmpty;
   }
 
+  addCharacter(Map<String, String> map) {}
+
 }
