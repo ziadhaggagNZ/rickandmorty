@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:rickandmorty/presentation/3_Details_Screen/Details_Screen.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
-import 'package:rickandmorty/provider/characters_provider.dart';
+import 'package:rickandmorty/provider/Characters_provider.dart';
 import 'package:animations/animations.dart';
-
+// GridView builder widget in movie list screen
 GridView CharactersBuilder(
     CharactersProvider provider, AutoScrollController scrollController) {
   return GridView.builder(
@@ -20,7 +20,7 @@ GridView CharactersBuilder(
     itemCount: provider.characters.length,
     itemBuilder: (context, index) {
       final character = provider.characters[index];
-      final isFavorite = provider.searchFromFavoriteList(character["name"] ?? "Unknown");
+      final isFavorite = provider.SearchFromFavoriteList(character["name"] ?? "Unknown");
 
       return AutoScrollTag(
         key: ValueKey(index),
@@ -75,9 +75,9 @@ GridView CharactersBuilder(
                     ),
                     onPressed: () {
                       if (isFavorite) {
-                        provider.deleteFromFavoriteList(character["name"] ?? "Unknown");
+                        provider.DeleteFromFavoriteList(character["name"] ?? "Unknown");
                       } else {
-                        provider.addToFavoriteList(
+                        provider.AddToFavoriteList(
                           character["name"] ?? "Unknown",
                           character["image"] ?? "Unknown",
                           character["status"] ?? "Unknown",

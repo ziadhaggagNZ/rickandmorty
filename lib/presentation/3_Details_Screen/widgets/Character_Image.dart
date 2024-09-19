@@ -1,5 +1,6 @@
   import 'package:flutter/material.dart';
 
+// Character Image in details screen
 Container Character_Image(BuildContext context, character) {
     return Container(
             margin: const EdgeInsets.all(3.0),

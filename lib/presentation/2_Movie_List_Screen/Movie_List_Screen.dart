@@ -4,9 +4,10 @@ import 'package:rickandmorty/presentation/2_Movie_List_Screen/widgets/Characters
 import 'package:rickandmorty/presentation/2_Movie_List_Screen/widgets/CustomAppbar.dart';
 import 'package:rickandmorty/presentation/2_Movie_List_Screen/widgets/CustomFloatingActionButton.dart';
 import 'package:rickandmorty/presentation/2_Movie_List_Screen/widgets/CustomNavBar.dart';
-import 'package:rickandmorty/provider/characters_provider.dart';
+import 'package:rickandmorty/provider/Characters_provider.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
+//Movie list screen class
 class MovieListScreen extends StatefulWidget {
   const MovieListScreen({super.key});
 

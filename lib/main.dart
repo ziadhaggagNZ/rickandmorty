@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rickandmorty/presentation/1_splash_screen/splash_screen.dart';
-import 'package:rickandmorty/provider/characters_provider.dart';
+import 'package:rickandmorty/presentation/1_splash_screen/Splash_screen.dart';
+import 'package:rickandmorty/provider/Characters_provider.dart';
 
 
 void main() {

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:rickandmorty/data/characters_web_services.dart';
 
+// Characters Provider class
 class CharactersProvider with ChangeNotifier {
   List<dynamic> _characters = [];
   bool _isLoading = false;
@@ -15,11 +16,12 @@ class CharactersProvider with ChangeNotifier {
   List<Map<String, String>> get favorite => _favorite;
 
   CharactersProvider() {
-    getCharacters();
-    loadFavorites();
+    GetCharacters();
+    LoadFavorites();
   }
 
-  Future<void> getCharacters() async {
+  // get Characters 
+  Future<void> GetCharacters() async {
     _isLoading = true;
     notifyListeners();
 
@@ -32,24 +34,27 @@ class CharactersProvider with ChangeNotifier {
     _isLoading = false;
     notifyListeners();
   }
-
-  void nextPage() {
-    if (_pageNumber < 41) {
+  
+  // Go to next page
+  void NextPage() {
+    if (_pageNumber < 42) {
       _pageNumber++;
-      getCharacters();
-      print(_pageNumber);
+      GetCharacters();
     }
   }
 
-  void previousPage() {
+
+  // Go to previous page
+  void PreviousPage() {
     if (_pageNumber > 1) {
       _pageNumber--;
-      getCharacters();
-      print(_pageNumber);
+      GetCharacters();
     }
   }
 
-  Future<void> addToFavoriteList(
+
+  // add To Favorite List
+  Future<void> AddToFavoriteList(
       String name, String image, String status, String species, String gender) async {
     _favorite.add({
       'Name': name,
@@ -58,31 +63,35 @@ class CharactersProvider with ChangeNotifier {
       'Species': species,
       'Gender': gender,
     });
-    print("addedddddddddddddddddddddddddd"); //! to test
-    print(_favorite); //! to test
-    await saveFavorites();
+    await SaveFavorites();
     notifyListeners();
   }
 
-  Future<void> deleteFromFavoriteList(String name) async {
+
+  // Delete From Favorite List
+  Future<void> DeleteFromFavoriteList(String name) async {
     _favorite.removeWhere((item) => item['Name'] == name);
-    print("removeddddddddddddddddddddddd"); //! to test
-    print(_favorite); //! to test
-    await saveFavorites();
+    await SaveFavorites();
     notifyListeners();
   }
 
-  bool searchFromFavoriteList(String name) {
+
+  //Search From Favorite List
+  bool SearchFromFavoriteList(String name) {
     return _favorite.any((item) => item['Name'] == name);
   }
 
-  Future<void> saveFavorites() async {
+  // Save Favorites
+  Future<void> SaveFavorites() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String favoritesJson = jsonEncode(_favorite);
     await prefs.setString('favorite_list', favoritesJson);
   }
 
-  Future<void> loadFavorites() async {
+
+  
+  // Load Favorites list
+  Future<void> LoadFavorites() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? favoritesJson = prefs.getString('favorite_list');
     if (favoritesJson != null) {
@@ -92,11 +101,12 @@ class CharactersProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  bool isEmpty()
+  // favorite list  is Empty
+  bool IsEmpty()
   {
     return _favorite.isEmpty;
   }
 
-  addCharacter(Map<String, String> map) {}
+  
 
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Custom AppBar in Favorite Screen
 AppBar CustomAppBar_FavoriteScreen() {
   return AppBar(
     title: Row(

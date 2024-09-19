@@ -5,7 +5,7 @@ Container Character_data_NameStatus_Favorite(favoriteCharacter) {
     margin: const EdgeInsets.symmetric(horizontal: 10),
     child: Row(
       children: [
-        //! Name
+        // Name section
         Flexible(
           flex: 2,
           child: Row(
@@ -33,7 +33,7 @@ Container Character_data_NameStatus_Favorite(favoriteCharacter) {
             ],
           ),
         ),
-        //! Status
+        // Status section
         Wrap(
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
@@ -78,7 +78,7 @@ Container Character_data_SpeciesGender_Favorite(favoriteCharacter) {
     margin: const EdgeInsets.only(top: 50, left: 10, right: 10),
     child: Row(
       children: [
-        //! species
+        // species section
         Flexible(
             flex: 2,
             child: Row(
@@ -103,7 +103,7 @@ Container Character_data_SpeciesGender_Favorite(favoriteCharacter) {
                 ),
               ],
             )),
-        //! gender
+        // gender section
         Wrap(
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
@@ -125,7 +125,7 @@ Container Character_data_SpeciesGender_Favorite(favoriteCharacter) {
     ),
   );
 }
-
+ // Logo Design
 Container LogoDesign() {
   return Container(
       margin: EdgeInsets.only(top: 20),

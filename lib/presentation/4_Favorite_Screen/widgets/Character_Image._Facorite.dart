@@ -1,5 +1,5 @@
   import 'package:flutter/material.dart';
-
+//Character Image in Favorite screen
 Container Character_Image_Favorite(BuildContext context, favoriteCharacter) {
     return Container(
             margin: const EdgeInsets.all(3.0),

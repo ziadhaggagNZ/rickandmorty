@@ -21,7 +21,7 @@ class _SplachAnimationState extends State<SplachAnimation> {
 
    
   }
-
+// splach screen animation 
   @override
   Widget build(BuildContext context) {
     return AnimatedAlign(

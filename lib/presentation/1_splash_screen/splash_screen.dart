@@ -12,8 +12,8 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
+ // Splash screen and after 3 sec navigator to movie list screen and if no internet navigator offline screen
 class _SplashScreenState extends State<SplashScreen> {
-
   @override
   void initState() {
     super.initState();
@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
           List<ConnectivityResult> connectivity,
           Widget child,
         ) {
-          final bool connected = !connectivity.contains(ConnectivityResult.none);
+          final bool connected = !connectivity.contains(ConnectivityResult.none); // check internet connectivity
           if(connected)
           {
             return MovieListScreen(); 

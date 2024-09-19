@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// App Bar widget in offline screen
 AppBar CustomAppBar_offline() {
   return AppBar(
     title: Row(

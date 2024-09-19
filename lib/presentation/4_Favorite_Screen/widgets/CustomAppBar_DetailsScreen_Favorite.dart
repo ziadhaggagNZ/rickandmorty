@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rickandmorty/presentation/2_Movie_List_Screen/Movie_List_Screen.dart';
 import 'package:rickandmorty/presentation/4_Favorite_Screen/Favorite_Screen.dart';
-import 'package:rickandmorty/provider/characters_provider.dart';
+import 'package:rickandmorty/provider/Characters_provider.dart';
 
+// custom AppBar in Favorite Screen 
 AppBar customAppBarDetailsScreenFavorite(
     BuildContext context, favoriteCharacter) {
   return AppBar(
@@ -25,11 +26,11 @@ AppBar customAppBarDetailsScreenFavorite(
         Consumer<CharactersProvider>(
           builder: (context, provider, child) {
             bool isFavorite = provider
-                .searchFromFavoriteList(favoriteCharacter["Name"] ?? "Unknown");
+                .SearchFromFavoriteList(favoriteCharacter["Name"] ?? "Unknown");
             return IconButton(
               onPressed: () {
                 if (isFavorite) {
-                  provider.deleteFromFavoriteList(
+                  provider.DeleteFromFavoriteList(
                       favoriteCharacter["Name"] ?? "Unknown");
                   Navigator.of(context).pushAndRemoveUntil(
                     MaterialPageRoute(builder: (context) => MovieListScreen()),
@@ -39,7 +40,7 @@ AppBar customAppBarDetailsScreenFavorite(
                     builder: (context) => FavoriteScreen(provider: provider),
                   ));
                 } else {
-                  provider.addToFavoriteList(
+                  provider.AddToFavoriteList(
                     favoriteCharacter["Name"] ?? "Unknown",
                     favoriteCharacter["Image"] ?? "Unknown",
                     favoriteCharacter["Status"] ?? "Unknown",

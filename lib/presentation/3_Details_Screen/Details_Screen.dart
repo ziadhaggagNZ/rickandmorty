@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rickandmorty/presentation/3_Details_Screen/widgets/Character_Image.dart';
 import 'package:rickandmorty/presentation/3_Details_Screen/widgets/Character_data.dart';
 import 'package:rickandmorty/presentation/3_Details_Screen/widgets/CustomAppBar_DetailsScreen.dart';
-import 'package:rickandmorty/provider/characters_provider.dart';
+import 'package:rickandmorty/provider/Characters_provider.dart';
 
 class DetailsScreen extends StatefulWidget {
   final CharactersProvider provider;
@@ -11,10 +11,10 @@ class DetailsScreen extends StatefulWidget {
   const DetailsScreen({Key? key, required this.provider, required this.index}) : super(key: key);
 
   @override
-  _DetailsScreenState createState() => _DetailsScreenState();
+  DetailsScreenState createState() => DetailsScreenState();
 }
-
-class _DetailsScreenState extends State<DetailsScreen> {
+//Details ScreenState class
+class DetailsScreenState extends State<DetailsScreen> {
   bool _isLoading = true;
 
   @override
@@ -34,7 +34,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
     final character = widget.provider.characters[widget.index];
 
     return Scaffold(
-      appBar: customAppBarDetailsScreen(context, character),
+      appBar: CustomAppBarDetailsScreen(context, character),
       body: Stack(
         children: [
           _isLoading

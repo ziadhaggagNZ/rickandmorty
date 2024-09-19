@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// data in offline screen
 Column data_offline() {
     return Column(
         children: [

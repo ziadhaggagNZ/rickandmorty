@@ -1,7 +1,7 @@
  import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:rickandmorty/provider/characters_provider.dart';
-
+import 'package:rickandmorty/provider/Characters_provider.dart';
+// Bottom AppBar widget in movie list screen
 Widget Custtom_Nav_Bar(BuildContext context) {
   final charactersProvider = Provider.of<CharactersProvider>(context);
     return Container(
@@ -13,7 +13,6 @@ Widget Custtom_Nav_Bar(BuildContext context) {
         shape: const CircularNotchedRectangle(), 
         notchMargin: 25, 
         child: Row(
-          //mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             IconButton(
               icon: const Icon(Icons.arrow_circle_left_outlined, color: Colors.black ,size: 50,),
@@ -24,7 +23,7 @@ Widget Custtom_Nav_Bar(BuildContext context) {
                }
                else
                {
-                charactersProvider.previousPage(); 
+                charactersProvider.PreviousPage(); 
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("pages : ${charactersProvider.pageNumber} of 42 "),duration: Duration(seconds: 1),));
                }
               },
@@ -39,7 +38,7 @@ Widget Custtom_Nav_Bar(BuildContext context) {
                }
                else
                {
-                charactersProvider.nextPage(); 
+                charactersProvider.NextPage(); 
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("pages : ${charactersProvider.pageNumber} of 42 "),duration: Duration(seconds: 1),));
                }
 

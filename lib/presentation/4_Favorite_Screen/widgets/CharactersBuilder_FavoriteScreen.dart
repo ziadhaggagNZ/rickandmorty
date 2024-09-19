@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:rickandmorty/presentation/4_Favorite_Screen/widgets/Details_Favorite_Screen.dart';
-import 'package:rickandmorty/provider/characters_provider.dart';
+import 'package:rickandmorty/provider/Characters_provider.dart';
 import 'package:animations/animations.dart';
 
+//GridView builder widget in Favorite screen
 GridView CharactersBuilder_FavoriteScreen(CharactersProvider provider) {
   return GridView.builder(
     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

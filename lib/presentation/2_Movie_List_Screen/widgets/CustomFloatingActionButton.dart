@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scroll_to_index/scroll_to_index.dart'; 
-
+// Floating Action Button widget in movie list screen
 Widget Floating_Action_Button({required AutoScrollController scrollController}) {
   return Padding(
     padding: const EdgeInsets.only(top: 75, left: 15, right: 15),
